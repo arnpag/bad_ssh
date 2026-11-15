@@ -1,0 +1,4 @@
+.vimrc
+*.o
+bad_ssh
+out/
