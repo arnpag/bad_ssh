@@ -29,6 +29,7 @@ Useful knowledge:
 - bind(2)
   - assigns a name to the socket, i.e. attaching an address to a socket fd
   - see ip(7) for AF_INET details
+  - takes `socket id` from `socket()`, and `ai_addr` from `getaddrinfo()` 
 
 - getaddrinfo(2)
   - man page contains example client and server
@@ -39,3 +40,12 @@ Useful knowledge:
   - converts network address binary to readable string
   - `const char *inet_ntop(int address_family, const void *restrict src, char dst[size], socklen_t size);`
   - places readable string into dst buffer
+
+
+**Connection call order**
+1. `getaddrinfo()` - gets formatted ip address and socket info
+2. `socket()` - gets socket file descriptor
+3. `bind()` - attaches a name to a socket
+4. `freeaddreinfo()` - free memory
+5. `recv()/send()` - receive or send bytes on socket
+6. `close()` - closes socket fd
