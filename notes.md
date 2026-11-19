@@ -34,3 +34,8 @@ Useful knowledge:
   - man page contains example client and server
  
 - ip(7)
+
+- inet_ntop
+  - converts network address binary to readable string
+  - `const char *inet_ntop(int address_family, const void *restrict src, char dst[size], socklen_t size);`
+  - places readable string into dst buffer
